@@ -1,237 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>⚠️ Important Message</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shirpu Confidential Investigation</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ffd6e7, #e8d9ff);
-      overflow: hidden;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffd8e8, #e7dcff);
+  overflow-x: hidden;
+}
 
-    .card {
-      width: 90%;
-      max-width: 480px;
-      background: white;
-      border-radius: 28px;
-      padding: 40px 30px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    }
+.card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255,255,255,0.96);
+  border-radius: 28px;
+  padding: 38px 28px;
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(80,50,90,0.15);
+  animation: appear 0.5s ease;
+}
 
-    .emoji {
-      font-size: 55px;
-      margin-bottom: 15px;
-    }
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
-    h1 {
-      color: #d94f7d;
-      font-size: 27px;
-      margin-bottom: 15px;
-    }
+.emoji {
+  font-size: 52px;
+  margin-bottom: 12px;
+}
 
-    p {
-      color: #555;
-      font-size: 17px;
-      line-height: 1.6;
-    }
+h1 {
+  color: #c94f7c;
+  font-size: 27px;
+  margin: 10px 0 16px;
+}
 
-    button {
-      margin-top: 20px;
-      border: none;
-      border-radius: 30px;
-      padding: 14px 30px;
-      font-size: 16px;
-      font-weight: bold;
-      color: white;
-      background: #d95f8a;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+h2 {
+  color: #555;
+  font-size: 21px;
+}
 
-    button:hover {
-      transform: scale(1.06);
-    }
+p {
+  color: #555;
+  font-size: 17px;
+  line-height: 1.6;
+}
 
-    .hidden {
-      display: none;
-    }
+strong {
+  color: #c94f7c;
+}
 
-    .small {
-      font-size: 13px;
-      color: #999;
-      margin-top: 25px;
-    }
-  </style>
+button {
+  margin-top: 20px;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: #d45c88;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 7px 18px rgba(212,92,136,0.3);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.hidden {
+  display: none;
+}
+
+.warning {
+  color: #d94f4f;
+  font-weight: bold;
+}
+
+.check {
+  text-align: left;
+  background: #fff5f8;
+  border-radius: 16px;
+  padding: 15px;
+  margin: 12px 0;
+  color: #555;
+}
+
+.evidence-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.evidence-photo {
+  width: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  margin: 12px auto 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.case-file {
+  background: #faf7fb;
+  border: 1px dashed #d9a9bd;
+  border-radius: 18px;
+  padding: 15px;
+  margin-top: 18px;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 25px;
+  animation: floatUp 3s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+.small {
+  font-size: 13px;
+  color: #999;
+  margin-top: 25px;
+}
+
+.signature {
+  color: #c94f7c;
+  font-weight: bold;
+  margin-top: 20px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card">
+<div class="card">
 
-    <div id="screen1">
-      <div class="emoji">🚨</div>
+  <!-- SCREEN 1 -->
+  <div id="screen1">
+    <div class="emoji">🚨</div>
 
-      <h1>URGENT NOTIFICATION</h1>
+    <h1>URGENT NOTIFICATION</h1>
 
-      <p>
-        This message has been classified as
-        <strong>VERY IMPORTANT.</strong>
-      </p>
+    <p>
+      This message has been classified as
+      <strong>EXTREMELY IMPORTANT.</strong>
+    </p>
 
-      <p>
-        Failure to open this message may result in
-        <strong>serious consequences.</strong>
-      </p>
+    <p>
+      Please do not panic.
+      <br>
+      Actually, you can panic a little.
+    </p>
 
-      <button onclick="nextScreen(2)">PROCEED →</button>
-    </div>
-
-
-    <div id="screen2" class="hidden">
-      <div class="emoji">🔐</div>
-
-      <h1>IDENTITY VERIFICATION</h1>
-
-      <p>
-        Before accessing this highly confidential information,
-        we need to confirm that you are, in fact, you.
-      </p>
-
-      <button onclick="nextScreen(3)">I AM ME</button>
-    </div>
-
-
-    <div id="screen3" class="hidden">
-      <div class="emoji">✅</div>
-
-      <h1>VERIFICATION SUCCESSFUL</h1>
-
-      <p>
-        Identity confirmed.
-      </p>
-
-      <p>
-        You may now access the important information.
-      </p>
-
-      <button onclick="nextScreen(4)">OPEN MESSAGE →</button>
-    </div>
-
-
-    <div id="screen4" class="hidden">
-      <div class="emoji">💌</div>
-
-      <h1>IMPORTANT MESSAGE</h1>
-
-      <p>
-        I love you. ❤️
-      </p>
-
-      <p>
-        That's literally it.
-      </p>
-
-      <p>
-        You have been successfully tricked.
-      </p>
-
-      <button onclick="nextScreen(5)">OKAY???</button>
-    </div>
-
-
-    <div id="screen5" class="hidden">
-      <div class="emoji">😭</div>
-
-      <h1>WAIT.</h1>
-
-      <p>
-        Why are you leaving?
-      </p>
-
-      <p>
-        I have more things to say.
-      </p>
-
-      <button onclick="nextScreen(6)">FINE 🙄</button>
-    </div>
-
-
-    <div id="screen6" class="hidden">
-      <div class="emoji">🫶</div>
-
-      <h1>Okay Shirpu...</h1>
-
-      <p>
-        You're cute.
-      </p>
-
-      <p>
-        You're my favourite person.
-      </p>
-
-      <p>
-        And unfortunately, you're stuck with me.
-      </p>
-
-      <p>
-        <strong>I love you. ❤️</strong>
-      </p>
-
-      <button onclick="nextScreen(7)">ONE MORE THING...</button>
-    </div>
-
-
-    <div id="screen7" class="hidden">
-      <div class="emoji">🥹</div>
-
-      <h1>Okay, NOW I'm actually done.</h1>
-
-      <p>
-        I don't have a big reason for making this.
-      </p>
-
-      <p>
-        I just wanted to make you smile.
-      </p>
-
-      <p>
-        ❤️
-      </p>
-
-      <p>
-        Now go about your business, handsome.
-      </p>
-
-      <div class="small">
-        Made with love & unnecessary amounts of drama.
-      </div>
-    </div>
-
+    <button onclick="nextScreen(2)">PROCEED →</button>
   </div>
 
 
-  <script>
-    function nextScreen(number) {
-      for (let i = 1; i <= 7; i++) {
-        document.getElementById("screen" + i).classList.add("hidden");
-      }
+  <!-- SCREEN 2 -->
+  <div id="screen2" class="hidden">
+    <div class="emoji">🔐</div>
 
-      document.getElementById("screen" + number).classList.remove("hidden");
-    }
-  </script>
+    <h1>IDENTITY VERIFICATION</h1>
+
+    <p>
+      Before accessing this highly confidential information,
+      we need to confirm that you are, in fact, you.
+    </p>
+
+    <button onclick="nextScreen(3)">I AM ME</button>
+  </div>
+
+
+  <!-- SCREEN 3 -->
+  <div id="screen3" class="hidden">
+    <div class="emoji">🕵️</div>
+
+    <h1>SECRET VERIFICATION</h1>
+
+    <div class="check">
+      Checking identity... ✓
+    </div>
+
+    <div class="check">
+      Checking credentials... ✓
+    </div>
+
+    <div class="check">
+      Checking cuteness...
+    </div>
+
+    <p>
+      <strong>Result: suspiciously cute.</strong>
+    </p>
+
+    <button onclick="nextScreen(4)">CONTINUE →</button>
+  </div>
+
+
+  <!-- SCREEN 4 -->
+  <div id="screen4" class="hidden">
+    <div class="emoji">📁</div>
+
+    <h1>CONFIDENTIAL FILE</h1>
+
+    <div class="case-file">
+      <div class="evidence-label">
+        CASE FILE: SHIRPU
+      </div>
+
+      <p>
+        After extensive investigation,
+        we have discovered something extremely concerning.
+      </p>
+
+      <p>
+        You have been occupying a
+        <strong>significant amount of my thoughts.</strong>
+      </p>
+
+      <p>
+        Further investigation is required.
+      </p>
+    </div>
+
+    <button onclick="nextScreen(5)">VIEW EVIDENCE →</button>
+  </div>
+
+
+  <!-- SCREEN 5 -->
+  <div id="screen5" class="hidden">
+    <div class="emoji">🔎</div>
+
+    <h1>EVIDENCE #001</h1>
+
+    <div class="evidence-label">
+      HIGHLY CLASSIFIED
+    </div>
+
+    <img
+      src="shirpu.jpg"
+      alt="Confidential evidence"
+      class="evidence-photo"
+    >
+
+    <p>
+      Evidence strongly suggests that
+      <strong>someone is very cute.</strong>
+    </p>
+
+    <button onclick="nextScreen(6)">CONTINUE INVESTIGATION →</button>
+  </div>
+
+
+  <!-- SCREEN 6 -->
+  <div id="screen6" class="hidden">
+    <div class="emoji">🚨</div>
+
+    <h1>FINAL FINDING</h1>
+
+    <p>
+      The investigation has been completed.
+    </p>
+
+    <p>
+      Unfortunately, you are:
+    </p>
+
+    <div class="check">
+      Very cute.
+    </div>
+
+    <div class="check">
+      Very loved. ❤️
+    </div>
+
+    <div class="check">
+      And unfortunately...
+      <strong>stuck with me.</strong>
+    </div>
+
+    <button onclick="nextScreen(7)">WAIT...</button>
+  </div>
+
+
+  <!-- SCREEN 7 -->
+  <div id="screen7" class="hidden">
+    <div class="emoji">😭</div>
+
+    <h1>PLOT TWIST</h1>
+
+    <p>
+      Actually...
+    </p>
+
+    <p>
+      I forgot something.
+    </p>
+
+    <button onclick="nextScreen(8)">WHAT???</button>
+  </div>
+
+
+  <!-- SCREEN 8 -->
+  <div id="screen8" class="hidden">
+    <div class="emoji">❤️</div>
+
+    <h1>FINAL MESSAGE</h1>
+
+    <p>
+      I LOVE YOU, SHIRPU.
+    </p>
+
+    <p>
+      Unfortunately, there is currently
+      <strong>no known cure.</strong>
+    </p>
+
+    <p>
+      We apologize for the inconvenience.
+    </p>
+
+    <button onclick="nextScreen(9)">I'M SURE YOU ARE →</button>
+  </div>
+
+
+  <!-- SCREEN 9 -->
+  <div id="screen9" class="hidden">
+    <div class="emoji">🥹</div>
+
+    <h1>Okay, NOW I'm actually done.</h1>
+
+    <p>
+      I didn't make this for any particular reason.
+    </p>
+
+    <p>
+      I just wanted to make you smile.
+    </p>
+
+    <p>
+      That's all. 🫶
+    </p>
+
+    <p class="signature">
+      Love you, Shirpu. ❤️
+    </p>
+
+    <div class="small">
+      Made with love & unnecessary amounts of drama.
+    </div>
+
+    <button onclick="finale()">ACCEPT LIABILITY →</button>
+  </div>
+
+</div>
+
+
+<script>
+
+function nextScreen(number) {
+
+  for (let i = 1; i <= 9; i++) {
+    document.getElementById("screen" + i).classList.add("hidden");
+  }
+
+  document.getElementById("screen" + number).classList.remove("hidden");
+}
+
+
+function finale() {
+
+  for (let i = 0; i < 45; i++) {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = ["❤️","💗","💕","💖","🩷"][Math.floor(Math.random() * 5)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+      (2 + Math.random() * 2) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
+
+  setTimeout(() => {
+
+    document.querySelector(".card").innerHTML = `
+
+      <div class="emoji">💗</div>
+
+      <h1>CASE CLOSED.</h1>
+
+      <p>
+        Congratulations, Shirpu.
+      </p>
+
+      <p>
+        You have officially accepted your fate.
+      </p>
+
+      <p>
+        <strong>You're stuck with me. ❤️</strong>
+      </p>
+
+      <div class="small">
+        Investigation conducted by your favourite nuisance.
+      </div>
+
+    `;
+
+  }, 1500);
+}
+
+</script>
 
 </body>
 </html>
