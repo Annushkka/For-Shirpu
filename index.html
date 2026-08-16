@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Shirpu Confidential Investigation</title>
 
 <style>
+
 * {
   box-sizing: border-box;
 }
@@ -17,47 +19,58 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ffd8e8, #e7dcff);
+
+  background:
+    radial-gradient(circle at top left, #ffe8f0, transparent 45%),
+    radial-gradient(circle at bottom right, #e9ddff, transparent 45%),
+    #f9edf5;
+
   overflow-x: hidden;
 }
 
 .card {
   width: 100%;
   max-width: 480px;
+
   background: rgba(255,255,255,0.96);
+
   border-radius: 28px;
+
   padding: 38px 28px;
+
   text-align: center;
-  box-shadow: 0 18px 50px rgba(80,50,90,0.15);
+
+  box-shadow:
+    0 20px 60px rgba(80,50,90,0.15);
+
   animation: appear 0.5s ease;
 }
 
 @keyframes appear {
+
   from {
     opacity: 0;
-    transform: translateY(15px) scale(0.98);
+    transform: translateY(18px) scale(0.97);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
+
 }
 
 .emoji {
-  font-size: 52px;
+  font-size: 54px;
   margin-bottom: 12px;
 }
 
 h1 {
   color: #c94f7c;
   font-size: 27px;
-  margin: 10px 0 16px;
-}
-
-h2 {
-  color: #555;
-  font-size: 21px;
+  margin: 10px 0 18px;
 }
 
 p {
@@ -71,355 +84,540 @@ strong {
 }
 
 button {
+
   margin-top: 20px;
+
   border: none;
+
   border-radius: 30px;
+
   padding: 14px 28px;
+
   font-size: 16px;
+
   font-weight: bold;
+
   color: white;
+
   background: #d45c88;
+
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 button:hover {
+
   transform: scale(1.06);
-  box-shadow: 0 7px 18px rgba(212,92,136,0.3);
+
+  box-shadow:
+    0 8px 20px rgba(212,92,136,0.3);
 }
 
 button:active {
-  transform: scale(0.96);
+
+  transform: scale(0.95);
+
 }
 
 .hidden {
   display: none;
 }
 
-.warning {
-  color: #d94f4f;
-  font-weight: bold;
-}
-
 .check {
+
   text-align: left;
+
   background: #fff5f8;
+
   border-radius: 16px;
+
   padding: 15px;
+
   margin: 12px 0;
+
   color: #555;
 }
 
+.case-file {
+
+  background: #faf7fb;
+
+  border: 1px dashed #d9a9bd;
+
+  border-radius: 18px;
+
+  padding: 17px;
+
+  margin-top: 18px;
+}
+
 .evidence-label {
+
   font-size: 12px;
+
   letter-spacing: 2px;
+
   color: #999;
+
   margin-bottom: 10px;
 }
 
 .evidence-photo {
+
   width: 100%;
+
   height: auto;
+
   max-width: 100%;
+
   object-fit: contain;
+
   border-radius: 20px;
+
   display: block;
+
   margin: 12px auto 18px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
-  border-radius: 20px;
-  display: block;
-  margin: 12px auto 18px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
 
-.case-file {
-  background: #faf7fb;
-  border: 1px dashed #d9a9bd;
-  border-radius: 18px;
-  padding: 15px;
-  margin-top: 18px;
-}
-
-.heart {
-  position: fixed;
-  bottom: -30px;
-  font-size: 25px;
-  animation: floatUp 3s linear forwards;
-  pointer-events: none;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(-110vh) rotate(30deg);
-    opacity: 0;
-  }
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.12);
 }
 
 .small {
+
   font-size: 13px;
+
   color: #999;
+
   margin-top: 25px;
 }
 
 .signature {
+
   color: #c94f7c;
+
   font-weight: bold;
+
   margin-top: 20px;
 }
+
+
+/* FLOATING HEARTS */
+
+.heart {
+
+  position: fixed;
+
+  bottom: -40px;
+
+  font-size: 25px;
+
+  pointer-events: none;
+
+  animation:
+    floatUp 4s linear forwards;
+
+  z-index: 999;
+}
+
+@keyframes floatUp {
+
+  0% {
+
+    transform:
+      translateY(0)
+      rotate(0deg);
+
+    opacity: 0.9;
+  }
+
+  100% {
+
+    transform:
+      translateY(-110vh)
+      rotate(25deg);
+
+    opacity: 0;
+  }
+
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="card">
 
-  <!-- SCREEN 1 -->
-  <div id="screen1">
-    <div class="emoji">🚨</div>
 
-    <h1>URGENT NOTIFICATION</h1>
+<!-- SCREEN 1 -->
 
-    <p>
-      This message has been classified as
-      <strong>EXTREMELY IMPORTANT.</strong>
-    </p>
+<div id="screen1">
 
-    <p>
-      Please do not panic.
-      <br>
-      Actually, you can panic a little.
-    </p>
-
-    <button onclick="nextScreen(2)">PROCEED →</button>
+  <div class="emoji">
+    🚨
   </div>
 
+  <h1>
+    URGENT NOTIFICATION
+  </h1>
 
-  <!-- SCREEN 2 -->
-  <div id="screen2" class="hidden">
-    <div class="emoji">🔐</div>
+  <p>
+    This message has been classified as
+    <strong>EXTREMELY IMPORTANT.</strong>
+  </p>
 
-    <h1>IDENTITY VERIFICATION</h1>
+  <p>
+    Please do not panic.
+    <br>
+    Actually, you can panic a little.
+  </p>
 
-    <p>
-      Before accessing this highly confidential information,
-      we need to confirm that you are, in fact, you.
-    </p>
+  <button onclick="nextScreen(2)">
+    PROCEED →
+  </button>
 
-    <button onclick="nextScreen(3)">I AM ME</button>
+</div>
+
+
+<!-- SCREEN 2 -->
+
+<div id="screen2" class="hidden">
+
+  <div class="emoji">
+    🔐
   </div>
 
+  <h1>
+    IDENTITY VERIFICATION
+  </h1>
 
-  <!-- SCREEN 3 -->
-  <div id="screen3" class="hidden">
-    <div class="emoji">🕵️</div>
+  <p>
+    Before accessing this highly confidential information,
+    we need to confirm that you are, in fact, you.
+  </p>
 
-    <h1>SECRET VERIFICATION</h1>
+  <button onclick="nextScreen(3)">
+    I AM ME
+  </button>
 
-    <div class="check">
-      Checking identity... ✓
-    </div>
+</div>
 
-    <div class="check">
-      Checking credentials... ✓
-    </div>
 
-    <div class="check">
-      Checking cuteness...
-    </div>
+<!-- SCREEN 3 -->
 
-    <p>
-      <strong>Result: suspiciously cute.</strong>
-    </p>
+<div id="screen3" class="hidden">
 
-    <button onclick="nextScreen(4)">CONTINUE →</button>
+  <div class="emoji">
+    🕵️
   </div>
 
+  <h1>
+    SECRET VERIFICATION
+  </h1>
 
-  <!-- SCREEN 4 -->
-  <div id="screen4" class="hidden">
-    <div class="emoji">📁</div>
-
-    <h1>CONFIDENTIAL FILE</h1>
-
-    <div class="case-file">
-      <div class="evidence-label">
-        CASE FILE: SHIRPU
-      </div>
-
-      <p>
-        After extensive investigation,
-        we have discovered something extremely concerning.
-      </p>
-
-      <p>
-        You have been occupying a
-        <strong>significant amount of my thoughts.</strong>
-      </p>
-
-      <p>
-        Further investigation is required.
-      </p>
-    </div>
-
-    <button onclick="nextScreen(5)">VIEW EVIDENCE →</button>
+  <div class="check">
+    Checking identity... ✓
   </div>
 
+  <div class="check">
+    Checking credentials... ✓
+  </div>
 
-  <!-- SCREEN 5 -->
-  <div id="screen5" class="hidden">
-    <div class="emoji">🔎</div>
+  <div class="check">
+    Checking cuteness...
+  </div>
 
-    <h1>EVIDENCE #001</h1>
+  <p>
+    <strong>
+      Result: suspiciously cute.
+    </strong>
+  </p>
+
+  <button onclick="nextScreen(4)">
+    CONTINUE →
+  </button>
+
+</div>
+
+
+<!-- SCREEN 4 -->
+
+<div id="screen4" class="hidden">
+
+  <div class="emoji">
+    📁
+  </div>
+
+  <h1>
+    CONFIDENTIAL FILE
+  </h1>
+
+  <div class="case-file">
 
     <div class="evidence-label">
-      HIGHLY CLASSIFIED
+      CASE FILE: SHIRPU
     </div>
 
-    <img
-      src="shirpu.jpg"
-      alt="Confidential evidence"
-      class="evidence-photo"
-    >
-
     <p>
-      Evidence strongly suggests that
-      <strong>someone is very cute.</strong>
+      After extensive investigation,
+      we have discovered something extremely concerning.
     </p>
 
-    <button onclick="nextScreen(6)">CONTINUE INVESTIGATION →</button>
+    <p>
+      You have been occupying a
+      <strong>
+        significant amount of my thoughts.
+      </strong>
+    </p>
+
+    <p>
+      Further investigation is required.
+    </p>
+
   </div>
 
+  <button onclick="nextScreen(5)">
+    VIEW EVIDENCE →
+  </button>
 
-  <!-- SCREEN 6 -->
-  <div id="screen6" class="hidden">
-    <div class="emoji">🚨</div>
+</div>
 
-    <h1>FINAL FINDING</h1>
 
-    <p>
-      The investigation has been completed.
-    </p>
+<!-- SCREEN 5 -->
 
-    <p>
-      Unfortunately, you are:
-    </p>
+<div id="screen5" class="hidden">
 
-    <div class="check">
-      Very cute.
-    </div>
-
-    <div class="check">
-      Very loved. ❤️
-    </div>
-
-    <div class="check">
-      And unfortunately...
-      <strong>stuck with me.</strong>
-    </div>
-
-    <button onclick="nextScreen(7)">WAIT...</button>
+  <div class="emoji">
+    🔎
   </div>
 
+  <h1>
+    EVIDENCE #001
+  </h1>
 
-  <!-- SCREEN 7 -->
-  <div id="screen7" class="hidden">
-    <div class="emoji">😭</div>
-
-    <h1>PLOT TWIST</h1>
-
-    <p>
-      Actually...
-    </p>
-
-    <p>
-      I forgot something.
-    </p>
-
-    <button onclick="nextScreen(8)">WHAT???</button>
+  <div class="evidence-label">
+    HIGHLY CLASSIFIED
   </div>
 
+  <img
+    src="shirpu.jpg"
+    alt="Confidential evidence"
+    class="evidence-photo"
+  >
 
-  <!-- SCREEN 8 -->
-  <div id="screen8" class="hidden">
-    <div class="emoji">❤️</div>
+  <p>
+    Evidence strongly suggests that
+    <strong>
+      someone is very cute.
+    </strong>
+  </p>
 
-    <h1>FINAL MESSAGE</h1>
+  <button onclick="nextScreen(6)">
+    CONTINUE INVESTIGATION →
+  </button>
 
-    <p>
+</div>
+
+
+<!-- SCREEN 6 -->
+
+<div id="screen6" class="hidden">
+
+  <div class="emoji">
+    🚨
+  </div>
+
+  <h1>
+    FINAL FINDING
+  </h1>
+
+  <p>
+    The investigation has been completed.
+  </p>
+
+  <p>
+    Unfortunately, you are:
+  </p>
+
+  <div class="check">
+    Very cute.
+  </div>
+
+  <div class="check">
+    Very loved. ❤️
+  </div>
+
+  <div class="check">
+    And unfortunately...
+    <strong>
+      stuck with me.
+    </strong>
+  </div>
+
+  <button onclick="nextScreen(7)">
+    WAIT...
+  </button>
+
+</div>
+
+
+<!-- SCREEN 7 -->
+
+<div id="screen7" class="hidden">
+
+  <div class="emoji">
+    😭
+  </div>
+
+  <h1>
+    PLOT TWIST
+  </h1>
+
+  <p>
+    Actually...
+  </p>
+
+  <p>
+    I forgot something.
+  </p>
+
+  <button onclick="nextScreen(8)">
+    WHAT???
+  </button>
+
+</div>
+
+
+<!-- SCREEN 8 -->
+
+<div id="screen8" class="hidden">
+
+  <div class="emoji">
+    ❤️
+  </div>
+
+  <h1>
+    FINAL MESSAGE
+  </h1>
+
+  <p>
+    <strong>
       I LOVE YOU, SHIRPU.
-    </p>
+    </strong>
+  </p>
 
-    <p>
-      Unfortunately, there is currently
-      <strong>no known cure.</strong>
-    </p>
+  <p>
+    Unfortunately, there is currently
+    <strong>
+      no known cure.
+    </strong>
+  </p>
 
-    <p>
-      We apologize for the inconvenience.
-    </p>
+  <p>
+    We apologize for the inconvenience.
+  </p>
 
-    <button onclick="nextScreen(9)">I'M SURE YOU ARE →</button>
+  <button onclick="nextScreen(9)">
+    I'M SURE YOU ARE →
+  </button>
+
+</div>
+
+
+<!-- SCREEN 9 -->
+
+<div id="screen9" class="hidden">
+
+  <div class="emoji">
+    🥹
   </div>
 
+  <h1>
+    Okay, NOW I'm actually done.
+  </h1>
 
-  <!-- SCREEN 9 -->
-  <div id="screen9" class="hidden">
-    <div class="emoji">🥹</div>
+  <p>
+    I didn't make this for any particular reason.
+  </p>
 
-    <h1>Okay, NOW I'm actually done.</h1>
+  <p>
+    I just wanted to make you smile.
+  </p>
 
-    <p>
-      I didn't make this for any particular reason.
-    </p>
+  <p>
+    That's all. 🫶
+  </p>
 
-    <p>
-      I just wanted to make you smile.
-    </p>
+  <p class="signature">
+    Love you, Shirpu. ❤️
+  </p>
 
-    <p>
-      That's all. 🫶
-    </p>
-
-    <p class="signature">
-      Love you, Shirpu. ❤️
-    </p>
-
-    <div class="small">
-      Made with love & unnecessary amounts of drama.
-    </div>
-
-    <button onclick="finale()">ACCEPT LIABILITY →</button>
+  <div class="small">
+    Made with love & unnecessary amounts of drama.
   </div>
+
+  <button onclick="finale()">
+    ACCEPT LIABILITY →
+  </button>
+
+</div>
+
 
 </div>
 
 
 <script>
 
+
+/* SCREEN NAVIGATION */
+
 function nextScreen(number) {
 
   for (let i = 1; i <= 9; i++) {
-    document.getElementById("screen" + i).classList.add("hidden");
+
+    document
+      .getElementById("screen" + i)
+      .classList.add("hidden");
+
   }
 
-  document.getElementById("screen" + number).classList.remove("hidden");
+  const next =
+    document.getElementById("screen" + number);
+
+  next.classList.remove("hidden");
+
+  next.style.animation = "none";
+
+  void next.offsetWidth;
+
+  next.style.animation =
+    "appear 0.5s ease";
 }
 
 
+/* FINAL SCREEN */
+
 function finale() {
 
-  const card = document.querySelector(".card");
+  const card =
+    document.querySelector(".card");
+
+  card.style.animation =
+    "appear 0.6s ease";
 
   card.innerHTML = `
-    <div class="emoji">💗</div>
 
-    <h1>CASE CLOSED.</h1>
+    <div class="emoji">
+      💗
+    </div>
+
+    <h1>
+      CASE CLOSED.
+    </h1>
 
     <p>
       Investigation complete.
@@ -427,7 +625,9 @@ function finale() {
 
     <p>
       Subject has been determined to be
-      <strong>very loved. ❤️</strong>
+      <strong>
+        very loved. ❤️
+      </strong>
     </p>
 
     <p>
@@ -438,25 +638,44 @@ function finale() {
       Case closed by your favourite nuisance.
     </div>
 
-    <button onclick="finalHearts()">ONE LAST THING →</button>
+    <button onclick="finalHearts()">
+      ONE LAST THING →
+    </button>
+
   `;
 
-  card.style.animation = "appear 0.6s ease";
 }
 
 
+/* HEARTS + FINAL MESSAGE */
+
 function finalHearts() {
 
-  for (let i = 0; i < 35; i++) {
+  for (let i = 0; i < 40; i++) {
 
-    const heart = document.createElement("div");
+    const heart =
+      document.createElement("div");
 
-    heart.className = "heart";
+    heart.className =
+      "heart";
+
+    const hearts = [
+      "❤️",
+      "💗",
+      "💕",
+      "💖",
+      "🩷"
+    ];
 
     heart.innerHTML =
-      ["❤️", "💗", "💕", "💖", "🩷"][Math.floor(Math.random() * 5)];
+      hearts[
+        Math.floor(
+          Math.random() * hearts.length
+        )
+      ];
 
-    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.left =
+      Math.random() * 100 + "vw";
 
     heart.style.animationDuration =
       (3 + Math.random() * 2) + "s";
@@ -464,16 +683,28 @@ function finalHearts() {
     document.body.appendChild(heart);
 
     setTimeout(() => {
+
       heart.remove();
-    }, 5000);
+
+    }, 5500);
+
   }
+
 
   setTimeout(() => {
 
-    document.querySelector(".card").innerHTML = `
-      <div class="emoji">🥹</div>
+    const card =
+      document.querySelector(".card");
 
-      <h1>Okay Shirpu.</h1>
+    card.innerHTML = `
+
+      <div class="emoji">
+        🥹
+      </div>
+
+      <h1>
+        Okay Shirpu.
+      </h1>
 
       <p>
         NOW I'm actually done.
@@ -484,16 +715,21 @@ function finalHearts() {
       </p>
 
       <p>
-        <strong>I love you. ❤️</strong>
+        <strong>
+          I love you. ❤️
+        </strong>
       </p>
 
       <div class="small">
         Made with love & unnecessary amounts of drama.
       </div>
+
     `;
 
-  }, 800);
+  }, 900);
+
 }
+
 </script>
 
 </body>
