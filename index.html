@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚠️ Important Message</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #e8d9ff);
+      overflow: hidden;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 480px;
+      background: white;
+      border-radius: 28px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .emoji {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      color: #d94f7d;
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #555;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    button {
+      margin-top: 20px;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background: #d95f8a;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.06);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .small {
+      font-size: 13px;
+      color: #999;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div id="screen1">
+      <div class="emoji">🚨</div>
+
+      <h1>URGENT NOTIFICATION</h1>
+
+      <p>
+        This message has been classified as
+        <strong>VERY IMPORTANT.</strong>
+      </p>
+
+      <p>
+        Failure to open this message may result in
+        <strong>serious consequences.</strong>
+      </p>
+
+      <button onclick="nextScreen(2)">PROCEED →</button>
+    </div>
+
+
+    <div id="screen2" class="hidden">
+      <div class="emoji">🔐</div>
+
+      <h1>IDENTITY VERIFICATION</h1>
+
+      <p>
+        Before accessing this highly confidential information,
+        we need to confirm that you are, in fact, you.
+      </p>
+
+      <button onclick="nextScreen(3)">I AM ME</button>
+    </div>
+
+
+    <div id="screen3" class="hidden">
+      <div class="emoji">✅</div>
+
+      <h1>VERIFICATION SUCCESSFUL</h1>
+
+      <p>
+        Identity confirmed.
+      </p>
+
+      <p>
+        You may now access the important information.
+      </p>
+
+      <button onclick="nextScreen(4)">OPEN MESSAGE →</button>
+    </div>
+
+
+    <div id="screen4" class="hidden">
+      <div class="emoji">💌</div>
+
+      <h1>IMPORTANT MESSAGE</h1>
+
+      <p>
+        I love you. ❤️
+      </p>
+
+      <p>
+        That's literally it.
+      </p>
+
+      <p>
+        You have been successfully tricked.
+      </p>
+
+      <button onclick="nextScreen(5)">OKAY???</button>
+    </div>
+
+
+    <div id="screen5" class="hidden">
+      <div class="emoji">😭</div>
+
+      <h1>WAIT.</h1>
+
+      <p>
+        Why are you leaving?
+      </p>
+
+      <p>
+        I have more things to say.
+      </p>
+
+      <button onclick="nextScreen(6)">FINE 🙄</button>
+    </div>
+
+
+    <div id="screen6" class="hidden">
+      <div class="emoji">🫶</div>
+
+      <h1>Okay Shirpu...</h1>
+
+      <p>
+        You're cute.
+      </p>
+
+      <p>
+        You're my favourite person.
+      </p>
+
+      <p>
+        And unfortunately, you're stuck with me.
+      </p>
+
+      <p>
+        <strong>I love you. ❤️</strong>
+      </p>
+
+      <button onclick="nextScreen(7)">ONE MORE THING...</button>
+    </div>
+
+
+    <div id="screen7" class="hidden">
+      <div class="emoji">🥹</div>
+
+      <h1>Okay, NOW I'm actually done.</h1>
+
+      <p>
+        I don't have a big reason for making this.
+      </p>
+
+      <p>
+        I just wanted to make you smile.
+      </p>
+
+      <p>
+        ❤️
+      </p>
+
+      <p>
+        Now go about your business, handsome.
+      </p>
+
+      <div class="small">
+        Made with love & unnecessary amounts of drama.
+      </div>
+    </div>
+
+  </div>
+
+
+  <script>
+    function nextScreen(number) {
+      for (let i = 1; i <= 7; i++) {
+        document.getElementById("screen" + i).classList.add("hidden");
+      }
+
+      document.getElementById("screen" + number).classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
