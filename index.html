@@ -414,25 +414,86 @@ function nextScreen(number) {
 
 function finale() {
 
-  for (let i = 0; i < 45; i++) {
+  const card = document.querySelector(".card");
+
+  card.innerHTML = `
+    <div class="emoji">💗</div>
+
+    <h1>CASE CLOSED.</h1>
+
+    <p>
+      Investigation complete.
+    </p>
+
+    <p>
+      Subject has been determined to be
+      <strong>very loved. ❤️</strong>
+    </p>
+
+    <p>
+      No further action is required.
+    </p>
+
+    <div class="small">
+      Case closed by your favourite nuisance.
+    </div>
+
+    <button onclick="finalHearts()">ONE LAST THING →</button>
+  `;
+
+  card.style.animation = "appear 0.6s ease";
+}
+
+
+function finalHearts() {
+
+  for (let i = 0; i < 35; i++) {
 
     const heart = document.createElement("div");
 
     heart.className = "heart";
 
-    heart.innerHTML = ["❤️","💗","💕","💖","🩷"][Math.floor(Math.random() * 5)];
+    heart.innerHTML =
+      ["❤️", "💗", "💕", "💖", "🩷"][Math.floor(Math.random() * 5)];
 
     heart.style.left = Math.random() * 100 + "vw";
 
     heart.style.animationDuration =
-      (2 + Math.random() * 2) + "s";
+      (3 + Math.random() * 2) + "s";
 
     document.body.appendChild(heart);
 
     setTimeout(() => {
       heart.remove();
-    }, 4000);
+    }, 5000);
   }
+
+  setTimeout(() => {
+
+    document.querySelector(".card").innerHTML = `
+      <div class="emoji">🥹</div>
+
+      <h1>Okay Shirpu.</h1>
+
+      <p>
+        NOW I'm actually done.
+      </p>
+
+      <p>
+        I just wanted to make you smile. 🫶
+      </p>
+
+      <p>
+        <strong>I love you. ❤️</strong>
+      </p>
+
+      <div class="small">
+        Made with love & unnecessary amounts of drama.
+      </div>
+    `;
+
+  }, 800);
+}
 
   setTimeout(() => {
 
